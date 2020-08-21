@@ -17,36 +17,6 @@ variable "guardduty_enabled" {
   default = true
 }
 
-# Kinesis
-
-variable "kinesis_enabled" {
-  type = bool
-  default = false
-}
-
-variable "kinesis_firehose_arn" {
-  description = "Set the arn for your kinesis firehose that is connected to elasticsearch"
-  default = ""
-}
-
-variable "kinesis_log_group_name" {}
-
-variable "kinesis_log_retention_in_days" {}
-
-variable "kinesis_log_stream_name" {}
-
-# Elasticsearch
-
-variable "aws_es_s3_mode" {}
-
-variable "aws_es_retry_duration" {}
-
-variable "aws_es_index_period" {}
-
-variable "aws_es_index_name" {}
-
-variable "aws_elasticsearch_domain" {}
-
 # SNS
 
 variable "sns_topic_name" {

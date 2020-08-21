@@ -24,11 +24,3 @@ resource "aws_cloudwatch_event_target" "s3_target" {
   arn       = aws_lambda_function.guardduty_s3[0].arn
   rule      = aws_cloudwatch_event_rule.guardduty_event_rule.name
 }
-
-resource "aws_cloudwatch_event_target" "kinesis_target" {
-  count     = var.kinesis_enabled ? 1 : 0
-  target_id = "send-to-es"
-  arn       = aws_kinesis_firehose_delivery_stream.kinesis_delivery[0].arn
-  rule      = aws_cloudwatch_event_rule.guardduty_event_rule.name
-  role_arn  = aws_iam_role.kinesis_event_role[0].arn
-}
